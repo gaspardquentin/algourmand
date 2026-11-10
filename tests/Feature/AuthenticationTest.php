@@ -11,7 +11,7 @@ class AuthenticationTest extends TestCase
      */
     public function test_unauthenticated_api_requests_receive_a_json_401(): void
     {
-        $response = $this->get('/api/user');
+        $response = $this->get('/api/v1/user');
 
         $response->assertUnauthorized()
             ->assertExactJson(['message' => 'Unauthenticated.']);
