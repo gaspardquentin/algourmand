@@ -5,6 +5,7 @@ namespace Tests\Feature\Http\Controllers\Api\V1;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 
@@ -35,6 +36,7 @@ class AuthControllerTest extends TestCase
                     'email' => 'gaspard@example.com',
                 ])
             );
+        $this->assertTrue(Str::isUuid($response->json('user.id')));
         $this->assertTrue(Hash::check(self::PASSWORD, $user->password));
 
         $this->withToken($response->json('token'))
