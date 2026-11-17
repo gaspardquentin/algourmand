@@ -14,7 +14,7 @@ class UserResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @return array{id: int, username: string, email: string}
+     * @return array{id: string, username: string, email: string}
      */
     public function toArray(Request $request): array
     {
